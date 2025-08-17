@@ -3,6 +3,7 @@ from estrutura_banco_de_dados import Autor, Postagem, app, db
 import jwt
 from datetime import datetime, timedelta, timezone
 from functools import wraps
+import os
 
 
 
@@ -201,9 +202,6 @@ def excluir_autor(autor, id_autor):
 
 
 
-
-
-
-
-
-app.run(port=500, host='localhost', debug=True )
+if __name__ == '__main__':
+    from os import environ
+    app.run(host=0.0.0.0,port= int(environ.get('PORT', 5000)))
